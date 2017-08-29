@@ -11,4 +11,9 @@ Rails.application.routes.draw do
   patch 'pictures/:id' => "pictures#update"
 
   delete 'pictures/:id' => 'pictures#destroy'
+
+
+  get 'posts' => 'posts#index'
+
+
 end
