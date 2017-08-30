@@ -13,7 +13,13 @@ Rails.application.routes.draw do
   delete 'pictures/:id' => 'pictures#destroy'
 
 
-  get 'posts' => 'posts#index'
+  get 'posts'          => 'posts#index'
+  post 'posts'         => 'posts#create'
+  get 'posts/new'      => 'posts#new'
+  get 'posts/:id'      => 'posts#show'
+  get 'posts/:id/edit' => "posts#edit"
+  patch 'posts/:id'    => "posts#update"
+  delete 'posts/:id'   => 'posts#destroy'
 
 
 end

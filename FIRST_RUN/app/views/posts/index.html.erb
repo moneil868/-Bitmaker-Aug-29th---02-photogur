@@ -1,22 +1,9 @@
 <h1> Posts Page </h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= link_to("New Post", "/posts/new") %>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.summary %></td>
-        <td><%= post.date %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul>
+  <% @posts.each do |post| %>
+  <li><%= link_to(post.title, "/posts/#{post.id}") %></li>
+  <% end %>
+</ul>

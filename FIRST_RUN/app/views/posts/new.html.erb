@@ -1,0 +1,15 @@
+<h1>Add a Post</h1>
+<%= link_to("Back to Posts", "/post") %>
+<%= form_for(@post) do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :summary %><br>
+    <%= f.text_field :summary %>
+  </p>
+  <p>
+    <%= f.submit "Save" %>
+  </p>
+<% end %>
