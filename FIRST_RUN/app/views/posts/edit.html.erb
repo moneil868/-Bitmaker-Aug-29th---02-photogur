@@ -1,0 +1,22 @@
+<h1>Edit Post</h1>
+<p>
+  <%= link_to("Back", "/posts/#{@post.id}") %>
+</p>
+
+<%= form_for(@post, url: "/posts/#{@post.id}") do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :summary %><br>
+    <%= f.text_field :summary %>
+  </p>
+  <p>
+    <%= f.label :date %><br>
+    <%= f.text_field :date %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
