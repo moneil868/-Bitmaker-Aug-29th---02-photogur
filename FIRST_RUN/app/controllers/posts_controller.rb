@@ -9,6 +9,24 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
+  end
+
+  def create
+    @post = Post.new
+
+    @post.title = params[:post][:title]
+    @post.summary = params[:post][:summary]
+    @post.date = params[:post][:date]
+
+
+    if @post.save
+      # if the post gets saved, generate a get request to "/posts" (the index)
+      redirect_to "/posts"
+    else
+      # otherwise render new.html.erb
+      render :new
+    end
   end
 
   def edit
