@@ -1,4 +1,7 @@
 <h1>Pictures (<%= @pictures.length %>)</h1>
+
+<h1><%= link_to("Click to view our Posts", "/posts") %></h1>
+
 <%= link_to("New Picture", "/pictures/new") %>
 
 <% @pictures.each do |picture| %>

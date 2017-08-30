@@ -22,3 +22,20 @@ Picture.create(
   artist: 'John Wilhelm',
   url:    'http://bitmakerlabs.s3.amazonaws.com/photogur/girl.jpg'
 )
+
+
+Post.create(
+  title:  'First Post',
+  summary: 'Sergey Ershov',
+)
+
+Post.create(
+  title:  'Second Post',
+  summary: 'Stephen Scullion',
+)
+
+Post.create(
+  title:  'Third Post',
+  summary: 'John Wilhelm',
+
+)
