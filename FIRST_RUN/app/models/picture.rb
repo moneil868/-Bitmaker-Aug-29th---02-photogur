@@ -12,4 +12,8 @@ class Picture < ActiveRecord::Base
     Picture.where("created_at < ?", time)
   end
 
+  def self.pictures_created_in_year(year)
+    Picture.where("created_at LIKE ?", year)
+  end
+
 end

@@ -7,7 +7,10 @@ class PicturesController < ApplicationController
 
     time_now = Time.now
     last_month = Time.utc(time_now.year, time_now.month - 1)
-    @one_month_old_pictures = Picture.where("created_at < ?", last_month)
+    @one_month_old_pictures = Picture.created_before(last_month)
+
+    @pictures_2016 = Picture.pictures_created_in_year("2016%")
+    @pictures_2017 = Picture.pictures_created_in_year("2017%")
   end
 
   def show
