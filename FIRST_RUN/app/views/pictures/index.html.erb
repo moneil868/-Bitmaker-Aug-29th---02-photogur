@@ -1,10 +1,14 @@
-<h1>Pictures (<%= @pictures.length %>)</h1>
-
-<h1><%= link_to("Click to view our Posts", "/posts") %></h1>
-
-<%= link_to("New Picture", "/pictures/new") %>
-
+<h1>All Pictures (<%= @pictures.length %>)</h1>
+<h4><%= link_to("Click to view our Posts", "/posts") %></h4>
+<%= link_to("Add new picture", "/pictures/new") %>
 <% @pictures.each do |picture| %>
   <p><%= picture.title %>, <%= picture.artist %></p>
   <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
 <% end %>
+
+<h1>Pictures Over a Month Old</h1>
+<ul>
+  <% @one_month_old_pictures.each do |picture| %>
+    <li><%= picture.title %></li>
+  <% end %>
+</ul>

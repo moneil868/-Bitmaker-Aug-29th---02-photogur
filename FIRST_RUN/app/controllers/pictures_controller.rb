@@ -2,6 +2,12 @@ class PicturesController < ApplicationController
 
   def index
     @pictures = Picture.all
+
+    @most_recent_pictures = Picture.most_recent_five
+
+    time_now = Time.now
+    last_month = Time.utc(time_now.year, time_now.month - 1)
+    @one_month_old_pictures = Picture.where("created_at < ?", last_month)
   end
 
   def show
@@ -39,6 +45,7 @@ class PicturesController < ApplicationController
     @picture.title = params[:picture][:title]
     @picture.artist = params[:picture][:artist]
     @picture.url = params[:picture][:url]
+    @picture.created_at = params[:picture][:created_at]
 
 
     if @picture.save
