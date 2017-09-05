@@ -4923,3 +4923,523 @@ Completed 200 OK in 30ms (Views: 24.9ms | ActiveRecord: 1.1ms)
   [1m[36mPicture Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "pictures" WHERE "pictures"."url" = ? LIMIT ?[0m  [["url", "www.google.com"], ["LIMIT", 1]]
   [1m[35mSQL (8.0ms)[0m  [1m[32mINSERT INTO "pictures" ("artist", "title", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["artist", "Marlon"], ["title", "This is a next title"], ["url", "www.google.com"], ["created_at", 2017-09-05 19:34:13 UTC], ["updated_at", 2017-09-05 19:34:13 UTC]]
   [1m[35m (6.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for ::1 at 2017-09-05 15:36:04 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures"[0m
+  Rendered pictures/index.html.erb within layouts/application (14.2ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (nil is not a valid asset source):
+    3: <%= link_to("Add new picture", "/pictures/new") %>
+    4: <% @pictures.each do |picture| %>
+    5:   <p><%= picture.title %>, <%= picture.artist %></p>
+    6:   <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
+    7: <% end %>
+    8: 
+    9: <h1>Pictures Over a Month Old</h1>
+  
+app/views/pictures/index.html.erb:6:in `block in _app_views_pictures_index_html_erb___4590310525340163967_70128739409140'
+app/views/pictures/index.html.erb:4:in `_app_views_pictures_index_html_erb___4590310525340163967_70128739409140'
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.8ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (11.2ms)
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (103.1ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from block in render_exception_with_web_console at /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/extensions.rb:16)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from acceptable_content_type? at /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/middleware.rb:58)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from ___sers__arlon__rbenv_versions_______lib_ruby_gems_______gems_web_console_______lib_web_console_templates_console_js_erb___699589595461719738_70128740287460 at /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb:491)
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (95.2ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (193.0ms)
+Started GET "/apple-touch-icon-precomposed.png" for ::1 at 2017-09-05 15:36:05 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+/Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+/Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered collection of /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [15 times] (13.3ms)
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (10.8ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (144.6ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from acceptable_content_type? at /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/middleware.rb:58)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from ___sers__arlon__rbenv_versions_______lib_ruby_gems_______gems_web_console_______lib_web_console_templates_console_js_erb___699589595461719738_70128717861640 at /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb:491)
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (66.2ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (162.0ms)
+Started GET "/apple-touch-icon.png" for ::1 at 2017-09-05 15:36:06 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+/Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+/Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered collection of /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [15 times] (5.9ms)
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (109.9ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from acceptable_content_type? at /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/middleware.rb:58)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from ___sers__arlon__rbenv_versions_______lib_ruby_gems_______gems_web_console_______lib_web_console_templates_console_js_erb___699589595461719738_70128717322840 at /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb:491)
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (66.3ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (160.1ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "pictures"[0m
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures"[0m
+  [1m[35mSQL (8.7ms)[0m  [1m[31mDELETE FROM "pictures" WHERE "pictures"."id" = ?[0m  [["id", 8]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "pictures"[0m
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures"[0m
+Started GET "/" for ::1 at 2017-09-05 15:36:48 -0400
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.3ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures"[0m
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at < '2017-08-01 00:00:00')[0m
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at LIKE '2016%')[0m
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at LIKE '2017%')[0m
+  Rendered pictures/index.html.erb within layouts/application (194.0ms)
+Completed 200 OK in 270ms (Views: 267.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/images/www.google.com" for ::1 at 2017-09-05 15:36:48 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/images/www.google.com"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+/Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+/Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered collection of /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [15 times] (5.0ms)
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (132.0ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from acceptable_content_type? at /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/middleware.rb:58)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from ___sers__arlon__rbenv_versions_______lib_ruby_gems_______gems_web_console_______lib_web_console_templates_console_js_erb___699589595461719738_70128720097780 at /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb:491)
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (94.2ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendering /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Marlon/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (205.4ms)
+  [1m[35mSQL (9.2ms)[0m  [1m[31mDELETE FROM "pictures" WHERE "pictures"."id" = ?[0m  [["id", 9]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pictures"[0m
+  [1m[36mPicture Load (0.3ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures"[0m
+Started GET "/" for ::1 at 2017-09-05 15:37:02 -0400
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures"[0m
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at < '2017-08-01 00:00:00')[0m
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at LIKE '2016%')[0m
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at LIKE '2017%')[0m
+  Rendered pictures/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 22ms (Views: 19.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/pictures/new" for ::1 at 2017-09-05 15:37:05 -0400
+Processing by PicturesController#new as HTML
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 37ms (Views: 27.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/pictures" for ::1 at 2017-09-05 15:37:37 -0400
+Processing by PicturesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wAC81HnI/c3SUrYyuOFosTt4XrPAKaZpdX+zoBitjsqU21tuvyncc3sdVt7PnDb1NBtkzPqcQpTwzW0tCIZuGg==", "picture"=>{"artist"=>"Marlon", "title"=>"The new title", "url"=>"http://lorempixel.com/900/700/"}, "commit"=>"Save"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPicture Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pictures" WHERE "pictures"."url" = ? LIMIT ?[0m  [["url", "http://lorempixel.com/900/700/"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "pictures" ("artist", "title", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["artist", "Marlon"], ["title", "The new title"], ["url", "http://lorempixel.com/900/700/"], ["created_at", 2017-09-05 19:37:37 UTC], ["updated_at", 2017-09-05 19:37:37 UTC]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/pictures
+Completed 302 Found in 23ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/pictures" for ::1 at 2017-09-05 15:37:37 -0400
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.3ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures"[0m
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at < '2017-08-01 00:00:00')[0m
+  [1m[36mPicture Load (0.6ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at LIKE '2016%')[0m
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at LIKE '2017%')[0m
+  Rendered pictures/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 50ms (Views: 45.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/pictures/new" for ::1 at 2017-09-05 15:40:20 -0400
+Processing by PicturesController#new as HTML
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 45ms (Views: 41.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/pictures" for ::1 at 2017-09-05 15:40:22 -0400
+Processing by PicturesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7wODls5OofumoQRQY3O4hCsjcPhrt9pDciEa3u+2odm72GQsCK+ARQ/u5LwUDubAJEBKh1ECPr73k8RT/51BCQ==", "picture"=>{"artist"=>"", "title"=>"", "url"=>""}, "commit"=>"Save"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPicture Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pictures" WHERE "pictures"."url" = ? LIMIT ?[0m  [["url", ""], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 41ms (Views: 36.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-09-05 15:40:49 -0400
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.3ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures"[0m
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at < '2017-08-01 00:00:00')[0m
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at LIKE '2016%')[0m
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at LIKE '2017%')[0m
+  Rendered pictures/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 25ms (Views: 21.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/pictures/new" for ::1 at 2017-09-05 15:40:51 -0400
+Processing by PicturesController#new as HTML
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 38ms (Views: 33.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/pictures" for ::1 at 2017-09-05 15:40:52 -0400
+Processing by PicturesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"97ls3/ppFCLRXKmciXnoUMl7Zt7eVBCYmOLM0reX6KcI9kUg9zGIQI1RHrnuBOU33LDuN5C7qkTBm7ffVMSqMQ==", "picture"=>{"artist"=>"", "title"=>"", "url"=>""}, "commit"=>"Save"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPicture Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pictures" WHERE "pictures"."url" = ? LIMIT ?[0m  [["url", ""], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 53ms (Views: 47.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/pictures" for ::1 at 2017-09-05 15:41:59 -0400
+Processing by PicturesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"97ls3/ppFCLRXKmciXnoUMl7Zt7eVBCYmOLM0reX6KcI9kUg9zGIQI1RHrnuBOU33LDuN5C7qkTBm7ffVMSqMQ==", "picture"=>{"artist"=>"", "title"=>"", "url"=>""}, "commit"=>"Save"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPicture Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pictures" WHERE "pictures"."url" = ? LIMIT ?[0m  [["url", ""], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 47ms (Views: 42.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/pictures" for ::1 at 2017-09-05 15:42:22 -0400
+Processing by PicturesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"97ls3/ppFCLRXKmciXnoUMl7Zt7eVBCYmOLM0reX6KcI9kUg9zGIQI1RHrnuBOU33LDuN5C7qkTBm7ffVMSqMQ==", "picture"=>{"artist"=>"", "title"=>"", "url"=>""}, "commit"=>"Save"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPicture Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "pictures" WHERE "pictures"."url" = ? LIMIT ?[0m  [["url", ""], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 41ms (Views: 30.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/pictures" for ::1 at 2017-09-05 15:42:25 -0400
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.9ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures"[0m
+  [1m[36mPicture Load (0.3ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at < '2017-08-01 00:00:00')[0m
+  [1m[36mPicture Load (0.5ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at LIKE '2016%')[0m
+  [1m[36mPicture Load (0.5ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at LIKE '2017%')[0m
+  Rendered pictures/index.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 44ms (Views: 39.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/pictures/new" for ::1 at 2017-09-05 15:42:27 -0400
+Processing by PicturesController#new as HTML
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 45ms (Views: 43.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/pictures" for ::1 at 2017-09-05 15:42:29 -0400
+Processing by PicturesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IZzsyS5YbpiJzoGTvzGpSQcSOPemWsSKMZSZvdiygPHe08U2IwDy+tXDNrbYTKQuEtmwHui1flZo7eKwO+HCZw==", "picture"=>{"artist"=>"", "title"=>"", "url"=>""}, "commit"=>"Save"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPicture Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "pictures" WHERE "pictures"."url" = ? LIMIT ?[0m  [["url", ""], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 44ms (Views: 40.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2017-09-05 15:42:48 -0400
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures"[0m
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at < '2017-08-01 00:00:00')[0m
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at LIKE '2016%')[0m
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at LIKE '2017%')[0m
+  Rendered pictures/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 46ms (Views: 41.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/pictures" for ::1 at 2017-09-05 15:43:11 -0400
+Processing by PicturesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IZzsyS5YbpiJzoGTvzGpSQcSOPemWsSKMZSZvdiygPHe08U2IwDy+tXDNrbYTKQuEtmwHui1flZo7eKwO+HCZw==", "picture"=>{"artist"=>"", "title"=>"", "url"=>""}, "commit"=>"Save"}
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPicture Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pictures" WHERE "pictures"."url" = ? LIMIT ?[0m  [["url", ""], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 53ms (Views: 37.0ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/pictures" for ::1 at 2017-09-05 15:43:13 -0400
+Processing by PicturesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"V5pYu92w5Xhkoo263sV/5wALU1JH7V44SqbDxANyiEOo1XFE0Oh5GjivOp+5uHKAFcDbuwkC5OQT37jJ4CHK1Q==", "picture"=>{"artist"=>"", "title"=>"", "url"=>""}, "commit"=>"Save"}
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPicture Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pictures" WHERE "pictures"."url" = ? LIMIT ?[0m  [["url", ""], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 48ms (Views: 37.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/pictures" for ::1 at 2017-09-05 15:43:27 -0400
+Processing by PicturesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"V5pYu92w5Xhkoo263sV/5wALU1JH7V44SqbDxANyiEOo1XFE0Oh5GjivOp+5uHKAFcDbuwkC5OQT37jJ4CHK1Q==", "picture"=>{"artist"=>"", "title"=>"", "url"=>""}, "commit"=>"Save"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPicture Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pictures" WHERE "pictures"."url" = ? LIMIT ?[0m  [["url", ""], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 89ms (Views: 83.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/pictures" for ::1 at 2017-09-05 15:43:30 -0400
+Processing by PicturesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s5tfP4B3bCJF/1+z9PgDeBb2sdaktkSjHMp2Ndty5JlM1HbAjS/wQBny6JaThQ4fAz05P+pZ/n9Fsw04OCGmDw==", "picture"=>{"artist"=>"", "title"=>"", "url"=>""}, "commit"=>"Save"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPicture Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "pictures" WHERE "pictures"."url" = ? LIMIT ?[0m  [["url", ""], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 40ms (Views: 37.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/pictures" for ::1 at 2017-09-05 15:43:31 -0400
+Processing by PicturesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s5tfP4B3bCJF/1+z9PgDeBb2sdaktkSjHMp2Ndty5JlM1HbAjS/wQBny6JaThQ4fAz05P+pZ/n9Fsw04OCGmDw==", "picture"=>{"artist"=>"", "title"=>"", "url"=>""}, "commit"=>"Save"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPicture Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "pictures" WHERE "pictures"."url" = ? LIMIT ?[0m  [["url", ""], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 38ms (Views: 25.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/pictures" for ::1 at 2017-09-05 15:43:32 -0400
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.6ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures"[0m
+  [1m[36mPicture Load (0.4ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at < '2017-08-01 00:00:00')[0m
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at LIKE '2016%')[0m
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at LIKE '2017%')[0m
+  Rendered pictures/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 46ms (Views: 34.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/pictures/new" for ::1 at 2017-09-05 15:43:33 -0400
+Processing by PicturesController#new as HTML
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 33ms (Views: 31.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/pictures" for ::1 at 2017-09-05 15:43:34 -0400
+Processing by PicturesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rLFGlBON9U60ngjzGmZ4qtQg5vJw+viSHabExnX3So1T/m9rHtVpLOiTv9Z9G3XNwetuGz4VQk5E37/LlqQIGw==", "picture"=>{"artist"=>"", "title"=>"", "url"=>""}, "commit"=>"Save"}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPicture Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pictures" WHERE "pictures"."url" = ? LIMIT ?[0m  [["url", ""], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 36ms (Views: 29.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2017-09-05 15:45:19 -0400
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.3ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures"[0m
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at < '2017-08-01 00:00:00')[0m
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at LIKE '2016%')[0m
+  [1m[36mPicture Load (0.3ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at LIKE '2017%')[0m
+  Rendered pictures/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 52ms (Views: 44.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/pictures/new" for ::1 at 2017-09-05 15:45:20 -0400
+Processing by PicturesController#new as HTML
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 25ms (Views: 22.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/pictures" for ::1 at 2017-09-05 15:45:21 -0400
+Processing by PicturesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GmsiBqCGLhbrfbGOx3WCdPRL/xuE+VzHy26aME3VbHdOsMW8ZmcPqEIyUWKwCNww+yjFZL5MuDpO3ES9Xf6Mpw==", "picture"=>{"artist"=>"", "title"=>"", "url"=>""}, "commit"=>"Save"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPicture Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pictures" WHERE "pictures"."url" = ? LIMIT ?[0m  [["url", ""], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 26ms (Views: 21.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/pictures" for ::1 at 2017-09-05 15:45:43 -0400
+Processing by PicturesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Bt1lIWR1tdQvPCLLNjuA5hA1Oy61ZJ19kxZGq114+UZSBoKbopSUaoZzwidBRt6iH1YBUY/ReYAWpJgmTVMZlg==", "picture"=>{"artist"=>"Marlon", "title"=>"New Title 3", "url"=>"http://lorempixel.com/900/700/"}, "commit"=>"Save"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPicture Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "pictures" WHERE "pictures"."url" = ? LIMIT ?[0m  [["url", "http://lorempixel.com/900/700/"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering pictures/new.html.erb within layouts/application
+  Rendered pictures/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 25ms (Views: 21.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/pictures" for ::1 at 2017-09-05 15:45:48 -0400
+Processing by PicturesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ITPEBrusTgoXd+wEWFM3xevv9z2dRQMZDqhCyDFLcXx16CO8fU1vtL44DOgvLmmB5IzNQqfw5+SLGpxFIWCRrA==", "picture"=>{"artist"=>"Marlon", "title"=>"New Title 3", "url"=>"http://lorempixel.com/800/700/"}, "commit"=>"Save"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPicture Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "pictures" WHERE "pictures"."url" = ? LIMIT ?[0m  [["url", "http://lorempixel.com/800/700/"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "pictures" ("artist", "title", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["artist", "Marlon"], ["title", "New Title 3"], ["url", "http://lorempixel.com/800/700/"], ["created_at", 2017-09-05 19:45:48 UTC], ["updated_at", 2017-09-05 19:45:48 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/pictures
+Completed 302 Found in 6ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/pictures" for ::1 at 2017-09-05 15:45:48 -0400
+Processing by PicturesController#index as HTML
+  Rendering pictures/index.html.erb within layouts/application
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures"[0m
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at < '2017-08-01 00:00:00')[0m
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at LIKE '2016%')[0m
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT "pictures".* FROM "pictures" WHERE (created_at LIKE '2017%')[0m
+  Rendered pictures/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 23ms (Views: 20.4ms | ActiveRecord: 0.6ms)
+
+
