@@ -1,5 +1,7 @@
 class Picture < ActiveRecord::Base
 
+  belongs_to :user
+
   validates :artist, :url, presence: true
   validates :title, length: { maximum: 20,
     too_long: "%{count} characters is the maximum allowed" }
