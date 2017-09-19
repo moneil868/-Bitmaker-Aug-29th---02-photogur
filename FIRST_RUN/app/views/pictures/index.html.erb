@@ -1,6 +1,7 @@
 <h1>All Pictures (<%= @pictures.length %>)</h1>
 <h4><%= link_to("Click to view our Posts", "/posts") %></h4>
 <%= link_to("Add new picture", "/pictures/new") %>
+
 <% @pictures.each do |picture| %>
   <p><%= picture.title %>, <%= picture.artist %></p>
   <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
@@ -20,6 +21,7 @@
     <li><%= picture.title %></li>
   <% end %>
 </ul>
+
 
 <h1>Pictures from year 2017 </h1>
 <ul>
