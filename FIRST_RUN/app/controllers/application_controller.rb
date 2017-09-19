@@ -16,5 +16,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def ensure_user_owns_picture
+    unless current_user.id == @picture.user_id
+      flash[:alert] = "You are not allowed to edit this photo"
+      redirect_to pictures_url
+    end
+  end
+
   helper_method :current_user
 end
